@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Teams Page 
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Manager</th>
+            <th scope="col">First_Eleven</th>
+            <th scope="col">Net_Worth(Billions)</th>
+            <th scope="col">Location</th>
+            <th scope="col">Founded</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        {% for team_info in teams %}
+            <tr>
+                <td>{{ team_info.custom_id }}</td>
+                <td>{{ team_info.name }}</td>
+                <td>{{ team_info.custom_barcode }}</td>
+                <td>{{ team_info.manager }}</td>
+                <td>{{ team_info.first_eleven }}</td>
+                <td>{{ team_info.net_worth }}</td>
+                <td>{{ team_info.location }}</td>
+                <td>{{ team_info.founded }}</td>
+                <td>
+                    <button class="btn btn-outline btn-info">More Info</button>
+                    <!-- <button class="btn btn-outline btn-success">Purchase this Item</button> -->
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
